@@ -1,6 +1,6 @@
 {
   "name": "vite-reactts-eslint-prettier",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,6 +11,10 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -27,6 +31,9 @@
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-react": "latest",
     "eslint-plugin-simple-import-sort": "latest",
+    "i18next": "latest",
+    "i18next-browser-languagedetector": "latest",
+    "i18next-xhr-backend": "latest",
     "pre-commit": "latest",
     "prettier": "latest",
     "typescript": "latest",
