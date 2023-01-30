@@ -3,6 +3,8 @@ import { createTheme, responsiveFontSizes } from '@mui/material';
 import { Theme } from '@mui/system';
 import React, { FC } from 'react';
 
+import Menu from './routes/menu';
+
 const darkTheme: Theme = responsiveFontSizes(
   createTheme({
     palette: {
@@ -11,7 +13,7 @@ const darkTheme: Theme = responsiveFontSizes(
         main: '#394c87',
       },
       secondary: {
-        main: '#172739',
+        main: '#cbcbcb',
       },
       background: {
         default: '#00000e',
@@ -21,7 +23,7 @@ const darkTheme: Theme = responsiveFontSizes(
         main: '#f51f10',
       },
       text: {
-        primary: '#bdbbbb',
+        primary: '#e6e6e6',
       },
     },
   }),
@@ -40,7 +42,7 @@ const App: FC = () => {
           alignItems: 'center',
         }}
       >
-        ABCDE
+        <Menu />
       </Paper>
     </ThemeProvider>
   );
