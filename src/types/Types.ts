@@ -52,3 +52,28 @@ export interface Response {
   count: number;
   rows: Array<BonusRow | ChiefRow | DepotRow | LocomotiveRow | RepairRow | WorkerRow>;
 }
+
+export enum PositionsList {
+  homeMenu = 'homeMenu',
+  tablesList = 'tablesList',
+  table = 'table',
+  adddingModal = 'adddingModal',
+  deletingModal = 'deletingModal',
+}
+
+export enum ChoosenTable {
+  bonus = 'Bonus',
+  repair = 'Repair',
+  worker = 'Worker',
+  chief = 'Chief',
+  locomotive = 'Locomotive',
+  depot = 'Depot',
+}
+
+export interface TableData {
+  id: number;
+  title: ChoosenTable.bonus;
+  columnNamesRu: Array<string>;
+  columnNames: Array<string>;
+  pKey: string;
+}

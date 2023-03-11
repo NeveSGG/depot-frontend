@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React, { FC, useState } from 'react';
 
 import request from '../../api/request';
+import MyTable from '../../components/muiTable';
 import {
   BonusRow,
   ChiefRow,
@@ -11,19 +12,25 @@ import {
   WorkerRow,
 } from '../../types/Types';
 
+interface TableData {
+  count: number;
+  rows: Array<BonusRow | ChiefRow | DepotRow | LocomotiveRow | RepairRow | WorkerRow>;
+}
+
 const Menu: FC = () => {
   const [displayProp, setDisplayProp] = useState<string>('buttons');
   const [choosenTable, setChoosenTable] = useState<string | null>(null);
-  const [respData, setRespData] = useState<
-    Array<BonusRow | ChiefRow | DepotRow | LocomotiveRow | RepairRow | WorkerRow>
-  >([]);
+  const [respData, setRespData] = useState<TableData>({
+    count: 0,
+    rows: [],
+  });
 
   const getData = async (choosenTable: string) => {
     if (choosenTable) {
       const resp = await request.getAllRows(choosenTable);
       if (resp.count) {
         console.log(resp.rows);
-        setRespData(resp.rows);
+        setRespData(resp);
       } else {
         alert('Таблица пуста');
       }
@@ -118,7 +125,7 @@ const Menu: FC = () => {
         ))}
       </Box>
       {respData && displayProp === 'table' && (
-        <Typography>{JSON.stringify(respData)}</Typography>
+        <MyTable count={respData.count} rows={respData.rows} />
       )}
       <Button
         color="primary"
@@ -127,7 +134,7 @@ const Menu: FC = () => {
           if (displayProp === 'tablesList') {
             setDisplayProp('buttons');
           } else if (displayProp === 'table') {
-            setRespData([]);
+            setRespData({ count: 0, rows: [] });
             setDisplayProp('tablesList');
           } else if (displayProp === 'allRows') {
             setDisplayProp('table');
