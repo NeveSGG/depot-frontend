@@ -1,1 +1,3 @@
-# depot-frontend
+# Depot Frontend
+
+Vite + TS + ESLint + Prettier
